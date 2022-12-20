@@ -22,7 +22,9 @@ VITAL_REGION = "us"
 client = Client(api_key=VITAL_API_KEY, environment=VITAL_ENVIRONMENT, region=VITAL_REGION)
 daniel_user_id = 'b1d28867-e695-4641-a2a4-9051a41ae752'
 daniel = client.User.get(daniel_user_id)
+
 daniel = client.User.resolve('43')
+print(daniel.get("user_id"))
 start_date = '2022-12-16 00:00:00'
 end_date = '2022-12-16'
 # sleep = client.Sleep.get(daniel_user_id, start_date, end_date)
