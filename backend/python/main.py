@@ -3,6 +3,7 @@ from http.client import HTTPException
 from tracemalloc import start
 from typing import Optional
 from vital import Client
+import json
 # from fastapi import FastAPI
 # from starlette.middleware.cors import CORSMiddleware
 # from pydantic import BaseModel
@@ -21,22 +22,37 @@ VITAL_REGION = "us"
 client = Client(api_key=VITAL_API_KEY, environment=VITAL_ENVIRONMENT, region=VITAL_REGION)
 daniel_user_id = 'b1d28867-e695-4641-a2a4-9051a41ae752'
 daniel = client.User.get(daniel_user_id)
-start_date = '2022-12-15'
-end_date = '2022-12-15'
-sleep = client.Sleep.get(daniel_user_id, start_date, end_date)
-print(sleep)
-print('__________________________')
-sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
-print(sleep)
+daniel = client.User.resolve('43')
+start_date = '2022-12-16 00:00:00'
+end_date = '2022-12-16'
+# sleep = client.Sleep.get(daniel_user_id, start_date, end_date)
+
+# print(json.dumps(sleep, indent=4))
+# print('===============')
+# print('===============')
+# print('===============')
+# print('===============')
+# print(sleep['sleep'][0]['awake'])
+# print('__________________________')
+# sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
+# print(json.dumps(sleep, indent=4))
+print('===============')
+print('===============')
+print('===============')
+print('===============')
 print('__________________________')
 sleep = client.Sleep.get_raw(daniel_user_id, start_date, end_date)
-sleep_list = sleep['sleep']
-for item in sleep_list[0]:
-    print(item)
-    print('===============')
-    print('===============')
-    print('===============')
-    print('===============')
+print(json.dumps(sleep, indent=4))
+# print('__________________________')
+# print('__________________________')
+# print('__________________________')
+# sleep_list = sleep['sleep']
+# for item in sleep_list[0]:
+#     print(item)
+#     print('===============')
+#     print('===============')
+#     print('===============')
+#     print('===============')
 
 
 
