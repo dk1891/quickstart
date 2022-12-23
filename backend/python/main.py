@@ -27,9 +27,9 @@ daniel = client.User.resolve('43')
 print(daniel.get("user_id"))
 start_date = '2022-12-16 00:00:00'
 end_date = '2022-12-16'
-# sleep = client.Sleep.get(daniel_user_id, start_date, end_date)
+sleep = client.Sleep.get(daniel_user_id, start_date, end_date)
 
-# print(json.dumps(sleep, indent=4))
+print(json.dumps(sleep, indent=4))
 print('===============')
 print('===============')
 print('===============')
@@ -38,8 +38,8 @@ print('===============')
 print('__________________________')
 sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
 sleep_thing = sleep['sleep'][0]['sleep_stream']['heartrate']
-# print(json.dumps(sleep_thing, indent=4))
-print(sleep_thing[0]['timestamp'])
+#print(json.dumps(sleep_thing, indent=4))
+#print(sleep_thing[0]['timestamp'])
 #print(json.dumps(sleep, indent=4))
 print('===============')
 print('===============')
