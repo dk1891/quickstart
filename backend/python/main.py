@@ -22,11 +22,12 @@ VITAL_REGION = "us"
 client = Client(api_key=VITAL_API_KEY, environment=VITAL_ENVIRONMENT, region=VITAL_REGION)
 daniel_user_id = 'b1d28867-e695-4641-a2a4-9051a41ae752'
 daniel = client.User.get(daniel_user_id)
+print(daniel)
 
 daniel = client.User.resolve('43')
 print(daniel.get("user_id"))
-start_date = '2022-12-16 00:00:00'
-end_date = '2022-12-16'
+start_date = '2022-12-12T00:00:00'
+end_date = '2022-12-14T23:59:59'
 sleep = client.Sleep.get(daniel_user_id, start_date, end_date)
 
 print(json.dumps(sleep, indent=4))
@@ -35,40 +36,20 @@ print('===============')
 print('===============')
 print('===============')
 # print(sleep['sleep'][0]['awake'])
-print('__________________________')
-sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
-sleep_thing = sleep['sleep'][0]['sleep_stream']['heartrate']
-#print(json.dumps(sleep_thing, indent=4))
-#print(sleep_thing[0]['timestamp'])
-#print(json.dumps(sleep, indent=4))
-print('===============')
-print('===============')
-print('===============')
-print('===============')
 # print('__________________________')
-sleep = client.Sleep.get_raw(daniel_user_id, start_date, end_date)
-print(json.dumps(sleep, indent=4))
-# day_count = 0
-# print(sleep['sleep'][day_count]['data']['score'])
-# print('===============')
-# print('===============')
-# print('===============')
-# print('===============')
-# print('===============')
-# print('===============')
-# print('===============')
-# print('===============')
-# print(sleep.get('sleep').get('data'))
-# print('__________________________')
-# print('__________________________')
-# print('__________________________')
-# sleep_list = sleep['sleep']
-# for item in sleep_list[0]:
-#     print(item)
-#     print('===============')
-#     print('===============')
-#     print('===============')
-#     print('===============')
+# sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
+# # sleep_thing = sleep['sleep'][0]['sleep_stream']['heartrate']
+# # #print(json.dumps(sleep_thing, indent=4))
+# # #print(sleep_thing[0]['timestamp'])
+# print(json.dumps(sleep, indent=4))
+# # print('===============')
+# # print('===============')
+# # print('===============')
+# # print('===============')
+# # # print('__________________________')
+# sleep = client.Sleep.get_raw(daniel_user_id, start_date, end_date)
+# print(json.dumps(sleep, indent=4))
+
 
 
 
