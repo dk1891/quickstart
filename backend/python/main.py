@@ -37,9 +37,9 @@ print('===============')
 print('===============')
 # print(sleep['sleep'][0]['awake'])
 # print('__________________________')
-# sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
-# # sleep_thing = sleep['sleep'][0]['sleep_stream']['heartrate']
-# # #print(json.dumps(sleep_thing, indent=4))
+sleep = client.Sleep.get_stream_for_date_range(daniel_user_id, start_date, end_date)
+sleep_thing = sleep['sleep'][0]['sleep_stream']['heartrate']
+print(json.dumps(sleep_thing, indent=4))
 # # #print(sleep_thing[0]['timestamp'])
 # print(json.dumps(sleep, indent=4))
 # # print('===============')
